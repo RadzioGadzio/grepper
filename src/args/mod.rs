@@ -6,7 +6,7 @@ use clap::Parser;
 use colored::Color;
 use regex::Regex;
 
-#[derive(Parser, Debug)]
+#[derive(Parser, Debug, Clone)]
 #[command(version, about)]
 pub struct Args {
     #[arg(help = "Files or directories to scan")]
