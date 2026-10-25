@@ -156,4 +156,17 @@ struct MatchLocation {
     color: Color
 }
 
+#[cfg(test)]
+mod tests {
+    use crate::tests::{get_args, TestArgs};
+    use super::*;
 
+    #[test]
+    fn _format_prefix() {
+        let args = get_args(TestArgs::NoInfo);
+        assert!(args.format_prefix(&PathBuf::from("./"), 1).is_empty(), "Should be empty");
+        let args = get_args(TestArgs::Default);
+        let content = args.format_prefix(&PathBuf::from("./"), 1);
+        assert!(!content.is_empty(), "Should not be empty");
+    }
+}
