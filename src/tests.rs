@@ -1,11 +1,13 @@
 use std::path::PathBuf;
 use crate::args::Args;
 
+#[allow(dead_code)]
 pub enum TestArgs {
     Default,
     NoInfo
 }
 
+#[allow(dead_code)]
 pub fn get_args(args: TestArgs) -> Args {
     match args {
         TestArgs::Default => Args {
