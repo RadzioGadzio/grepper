@@ -1,18 +1,18 @@
 use regex::Regex;
 
 pub trait PatternTrait {
-    fn to_regex(&self) -> Regex;
+    fn regex(&self) -> Regex;
     fn string(&self) -> String;
     fn matches_text(&self, text: &str, strict: bool) -> bool {
         if strict {
             text.contains(&self.string())
         } else {
-            self.to_regex().is_match(text)
+            self.regex().is_match(text)
         }
     }
 }
 impl PatternTrait for Regex {
-    fn to_regex(&self) -> Regex {
+    fn regex(&self) -> Regex {
         self.clone()
     }
     fn string(&self) -> String {
@@ -20,7 +20,7 @@ impl PatternTrait for Regex {
     }
 }
 impl PatternTrait for String {
-    fn to_regex(&self) -> Regex {
+    fn regex(&self) -> Regex {
         Regex::new(self.as_str()).unwrap()
     }
     fn string(&self) -> String {
