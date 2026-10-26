@@ -130,7 +130,6 @@ pub fn highlight(line: &str, locations: &[MatchLocation]) -> String {
         // Get next color
         let color = COLORS[m.pattern_index % COLORS.len()];
         // Push everything in between match start and end index and color it using match color
-        // let _ = write!(out, "{}", line[start..m.end].color(color));
         out.push_str(&format!("{}", &line[start..m.end].color(color)));
 
         // Move cursor
