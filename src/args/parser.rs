@@ -143,11 +143,7 @@ impl Args {
     }
 }
 
-#[derive(Debug)]
-enum MatchType {
-    All,
-    Any
-}
+
 
 #[derive(Debug)]
 struct MatchLocation {

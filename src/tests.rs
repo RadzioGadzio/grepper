@@ -1,21 +1,25 @@
 use std::path::PathBuf;
+use regex::Regex;
 use crate::args::Args;
+use crate::matcher::MatchMode;
 
 #[allow(dead_code)]
 pub enum TestArgs {
-    Default,
-    NoInfo
+    Default
+}
+
+#[allow(dead_code)]
+pub fn get_regex(regex: &str) -> Regex {
+    Regex::new(regex).expect("Invalid regex")
 }
 
 #[allow(dead_code)]
 pub fn get_args(args: TestArgs) -> Args {
     match args {
         TestArgs::Default => Args {
-            paths: Some(vec![PathBuf::from(".")]),
+            paths: vec![PathBuf::from(".")],
             patterns: Vec::new(),
-            all: true,
-            any: false,
-            no_info: false,
+            mode: MatchMode::All,
             fixed_strings: false,
             ignore_case: false,
             exclude: vec![],
