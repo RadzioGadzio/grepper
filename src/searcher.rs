@@ -130,7 +130,7 @@ pub fn highlight(line: &str, locations: &[MatchLocation]) -> String {
         // Get next color
         let color = COLORS[m.pattern_index % COLORS.len()];
         // Push everything in between match start and end index and color it using match color
-        out.push_str(&format!("{}", &line[start..m.end].color(color)));
+        out.push_str(&format!("{}", line[start..m.end].color(color)));
 
         // Move cursor
         cursor = m.end;
@@ -149,7 +149,7 @@ pub fn run() -> anyhow::Result<bool> {
         if path.is_file() {
             searcher.search_path(path, &mut stdout)?;
         } else {
-            searcher.read_dir(&path, &mut stdout)?;
+            searcher.read_dir(path, &mut stdout)?;
         }
 
     }
