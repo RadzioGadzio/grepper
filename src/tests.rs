@@ -28,11 +28,6 @@ pub fn get_args(args: TestArgs) -> Args {
             include_regex: false,
             recursive: false,
             depth: None,
-        },
-
-        TestArgs::NoInfo => Args {
-            no_info: true,
-            ..get_args(TestArgs::Default).clone()
         }
     }
 }

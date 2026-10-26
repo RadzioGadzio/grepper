@@ -1,7 +1,6 @@
 use std::fs::File;
 use std::io::{BufRead, BufReader, Write};
 use std::path::{Path, PathBuf};
-// use std::fmt::Write;
 use anyhow::Context;
 use clap::Parser;
 use colored::{Color, Colorize};
